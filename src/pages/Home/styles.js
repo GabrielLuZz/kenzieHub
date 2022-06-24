@@ -1,11 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledHome = styled.div`
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0px 18px;
-  /* filter: blur(8px); */
+  ${({ infoModal }) =>
+    !!infoModal.length &&
+    css`
+      filter: blur(8px);
+    `}
   header {
     width: 100%;
 

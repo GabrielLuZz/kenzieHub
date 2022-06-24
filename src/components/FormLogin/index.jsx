@@ -5,8 +5,11 @@ import { StyledForm } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const FormLogin = ({ setOnRegister }) => {
+const FormLogin = ({ setOnRegister, setAuthenticated, authenticated }) => {
   const schema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
 
@@ -20,8 +23,25 @@ const FormLogin = ({ setOnRegister }) => {
       ),
   });
 
+  const history = useHistory();
+
   const onSubmitFunction = (data) => {
-    console.log(data);
+    api
+      .post("sessions", data)
+      .then((response) => {
+        const { user, token } = response.data;
+
+        localStorage.setItem("@Hub:token", JSON.stringify(token));
+        localStorage.setItem("@Hub:user", JSON.stringify(user));
+
+        setAuthenticated(true);
+        toast.success("Login feito com sucesso!");
+
+        return history.push("/");
+      })
+      .catch((_) => {
+        toast.error("Email ou senha incorretos");
+      });
   };
 
   const {

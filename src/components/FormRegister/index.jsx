@@ -5,6 +5,9 @@ import { StyledForm } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import api from "../../services/api";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 const FormRegister = ({ setOnRegister }) => {
   const schema = yup.object().shape({
@@ -31,7 +34,15 @@ const FormRegister = ({ setOnRegister }) => {
   });
 
   const onSubmitFunction = (data) => {
-    console.log(data);
+    api
+      .post("users", data)
+      .then((_) => {
+        toast.success("Sucesso ao criar a conta");
+        setOnRegister(false);
+      })
+      .catch((_) => {
+        toast.error("Erro ao tentar Cadastrar. Tente outro email");
+      });
   };
 
   const {

@@ -13,6 +13,13 @@ export const StyledCard = styled.div`
   cursor: pointer;
   transition: all ease 0.5s;
 
+  .title {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
   &:hover {
     transform: scaleY(1.3);
   }
