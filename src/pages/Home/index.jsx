@@ -9,7 +9,7 @@ import { StyledHome } from "./styles";
 const Home = ({ authenticated, setAuthenticated }) => {
   const user = JSON.parse(localStorage.getItem("@Hub:user"));
   const [infoModal, setInfoModal] = useState([]);
-  const [list, setList] = useState(user.techs);
+  const [list, setList] = useState(user || []);
 
   const updateUser = () => {
     api.get(`users/${user.id}`).then((response) => {
@@ -17,6 +17,8 @@ const Home = ({ authenticated, setAuthenticated }) => {
       localStorage.setItem("@Hub:user", JSON.stringify(response.data));
     });
   };
+
+  console.log(authenticated);
 
   if (!authenticated) {
     return <Redirect to="/authenticate" />;
