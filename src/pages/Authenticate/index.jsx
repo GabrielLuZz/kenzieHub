@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import FormLogin from "../../components/FormLogin";
 import FormRegister from "../../components/FormRegister";
 import { StyledAuthenticate } from "./styles";

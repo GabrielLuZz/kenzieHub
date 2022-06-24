@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
 import FalseSelect from "../Select";

@@ -1,8 +1,6 @@
 import { StyledCard } from "./styles";
-import { toast } from "react-toastify";
 
 import { BsFillTrashFill } from "react-icons/bs";
-import api from "../../services/api";
 
 const Card = ({ tech, setInfoModal, updateUser }) => {
   const openEdit = () => {

@@ -1,11 +1,6 @@
 import Button from "../Button";
-import Input from "../Input";
-import FalseSelect from "../FalseSelect";
 import { StyledModal } from "./styles";
 import { AiOutlineClose } from "react-icons/ai";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 import FormRegisterTech from "../FormRegisterTech";
@@ -50,19 +45,6 @@ const Modal = ({ infoModal, updateUser, setAuthenticated }) => {
         toast.success("Tecnologia excluida!!!");
       });
   };
-
-  const schema = yup.object().shape({
-    tech: yup.string().required("Tech obrigatória"),
-    status: yup.string().required("Status obrigatório"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
 
   return (
     <StyledModal type={type}>

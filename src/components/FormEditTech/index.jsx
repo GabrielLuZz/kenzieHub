@@ -4,8 +4,6 @@ import Input from "../Input";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import api from "../../services/api";
-import { toast } from "react-toastify";
 
 const FormEditTech = ({ editTech, infoModal }) => {
   const schema = yup.object().shape({
