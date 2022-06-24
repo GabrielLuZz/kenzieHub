@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Authenticate from "../pages/Authenticate";
 import Home from "../pages/Home";
 
