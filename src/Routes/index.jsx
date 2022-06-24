@@ -5,16 +5,12 @@ import Home from "../pages/Home";
 
 const Routes = () => {
   const [authenticated, setAuthenticated] = useState(false);
-  const history = useHistory();
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("@Hub:token"));
-    console.log(token);
 
     if (token) {
       setAuthenticated(true);
-    } else {
-      history.push("/authenticate");
     }
   }, [authenticated]);
 

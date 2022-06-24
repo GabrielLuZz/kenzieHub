@@ -16,7 +16,7 @@ const List = ({ list, setInfoModal, updateUser }) => {
         </Button>
       </div>
       <div className="list">
-        {list.map((item) => (
+        {list?.map((item) => (
           <Card
             key={item.id}
             updateUser={updateUser}
