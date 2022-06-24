@@ -4,7 +4,11 @@ export const StyledInput = styled.label`
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 14px;
+
+  .error {
+    color: var(--color-primary-negative);
+    margin-top: 10px;
+  }
 
   input {
     width: 100%;
@@ -16,9 +20,10 @@ export const StyledInput = styled.label`
     font-weight: 400;
     font-size: 16.2426px;
     color: var(--grey-0);
+    margin-top: 14px;
 
     &::placeholder {
-      color: var(--grey-0);
+      color: var(--grey-1);
     }
 
     &:focus {

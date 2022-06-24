@@ -48,6 +48,12 @@ export const StyledButton = styled.button`
 
   border-radius: 4px;
 
+  transition: all ease 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   font-size: ${({ isSmall }) => (isSmall ? "12px" : "16px")};
   font-weight: ${({ isSmall }) => (isSmall ? "600" : "500")};
 `;
