@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
-import FalseSelect from "../Select";
+import FalseSelect from "../FalseSelect";
 import { StyledForm } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -26,6 +25,9 @@ const FormRegister = ({ setOnRegister }) => {
       .string()
       .required("Senha obrigatória")
       .oneOf([yup.ref("password"), null], "senhas precisam ser iguais"),
+    bio: yup.string().required("Bio obrigatória"),
+    contact: yup.string().required("Contato obrigatório"),
+    course_module: yup.string().required("Módulo obrigatório"),
   });
 
   const onSubmitFunction = (data) => {
@@ -97,7 +99,8 @@ const FormRegister = ({ setOnRegister }) => {
 
         <Input
           register={register}
-          error={errors}
+          name="bio"
+          error={errors?.bio}
           type="text"
           label="Bio"
           placeholder="Fale sobre você"
@@ -105,21 +108,23 @@ const FormRegister = ({ setOnRegister }) => {
 
         <Input
           register={register}
-          error={errors}
+          name="contact"
+          error={errors?.contact}
           type="text"
           label="Contato"
           placeholder="Opção de contato"
         />
 
         <FalseSelect
+          register={register}
+          name="course_module"
           label="Selecionar módulo"
+          error={errors?.select}
           selectOptions={[
-            "Primeiro Módulo",
-            "Segundo Módulo",
-            "Terceiro Módulo",
-            "Quarto Módulo",
-            "Quinto Módulo",
-            "Sexto Módulo",
+            ["Primeiro módulo (Introdução ao Frontend)", "Primeiro Módulo"],
+            ["Segundo módulo (Frontend Avançado)", "Segundo Módulo"],
+            ["Terceiro módulo (Introdução ao Backend)", "Terceiro Módulo"],
+            ["Quarto módulo (Backend Avançado)", "Quarto Módulo"],
           ]}
         />
 

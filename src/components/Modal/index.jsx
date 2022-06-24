@@ -1,12 +1,10 @@
 import Button from "../Button";
 import Input from "../Input";
-import FalseSelect from "../Select";
+import FalseSelect from "../FalseSelect";
 import { StyledModal } from "./styles";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Modal = ({ type }) => {
-  let title;
-
   return (
     <StyledModal>
       <div className="modal">

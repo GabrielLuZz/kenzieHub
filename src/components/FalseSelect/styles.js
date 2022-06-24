@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import FormControl from "@mui/material/FormControl";
+import { Grid } from "@mui/material";
 
 export const StyledSelect = styled(FormControl)`
   width: 100% !important;
@@ -18,5 +19,14 @@ export const StyledSelect = styled(FormControl)`
 
   svg {
     color: var(--grey-1);
+  }
+`;
+
+export const StyledError = styled(Grid)`
+  width: 100%;
+  .error {
+    color: var(--color-primary-negative);
+    margin-top: 10px;
+    font-size: 19px;
   }
 `;

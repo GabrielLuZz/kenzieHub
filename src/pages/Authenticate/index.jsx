@@ -1,12 +1,17 @@
 import { useState } from "react";
-import Form from "../../components/Form";
+import FormLogin from "../../components/FormLogin";
+import FormRegister from "../../components/FormRegister";
 import { StyledAuthenticate } from "./styles";
 
 const Authenticate = () => {
-  const [isRegister, setIsRegister] = useState(false);
+  const [onRegister, setOnRegister] = useState(false);
   return (
     <StyledAuthenticate>
-      <Form isRegister={isRegister} setIsRegister={setIsRegister} />
+      {onRegister ? (
+        <FormRegister setOnRegister={setOnRegister} />
+      ) : (
+        <FormLogin isRegister={false} setOnRegister={setOnRegister} />
+      )}
     </StyledAuthenticate>
   );
 };

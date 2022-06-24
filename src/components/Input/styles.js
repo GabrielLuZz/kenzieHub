@@ -8,6 +8,7 @@ export const StyledInput = styled.label`
   .error {
     color: var(--color-primary-negative);
     margin-top: 10px;
+    font-size: 19px;
   }
 
   input {

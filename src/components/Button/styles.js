@@ -9,6 +9,7 @@ export const StyledButton = styled.button`
     `}
 
   height: ${({ isSmall }) => (isSmall ? "40px" : "48px")};
+  min-height: ${({ isSmall }) => (isSmall ? "40px" : "48px")};
   display: flex;
   justify-content: center;
   align-items: center;

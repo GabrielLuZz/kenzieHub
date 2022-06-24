@@ -15,10 +15,13 @@ to {
 
 export const StyledForm = styled.form`
   width: 100%;
-  max-width: 370px;
+  max-width: 450px;
+  max-height: 99vh;
   gap: 20px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  padding: 0px 20px;
 
   transform: scale(0.9);
 
@@ -38,14 +41,14 @@ export const StyledForm = styled.form`
 
   .form {
     width: 100%;
-    min-height: 500px;
+    flex: 1;
     background-color: var(--grey-3);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 42px 22px;
-    gap: 22px;
+    gap: 25px;
     box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
     border-radius: 4px;
 

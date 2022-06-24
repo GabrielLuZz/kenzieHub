@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
-import FalseSelect from "../Select";
 import { StyledForm } from "./styles";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
@@ -10,10 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 const FormLogin = ({ setOnRegister }) => {
   const schema = yup.object().shape({
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
-    name: yup
-      .string()
-      .required("Nome obrigatório")
-      .max(18, "máximo de 18 caracteres"),
+
     password: yup
       .string()
       .required("Senha obrigatória")
@@ -22,10 +18,6 @@ const FormLogin = ({ setOnRegister }) => {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&.*])(?=.{8,})/,
         "a senha precisa conter pelos menos um caracter maiúsculo, outro minúsculo, um número e um caracter especial"
       ),
-    confirmPassword: yup
-      .string()
-      .required("Senha obrigatória")
-      .oneOf([yup.ref("password"), null], "senhas precisam ser iguais"),
   });
 
   const onSubmitFunction = (data) => {
